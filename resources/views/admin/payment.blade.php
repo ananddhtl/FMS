@@ -21,21 +21,20 @@
                                         <thead>
                                             <tr>
                                                
-                                                <th>Title</th>
-                                                <th>Date</th>
-                                                
-                                                <th>Time Slots</th>
-                                                <th>Action</th>
+                                                <th>Futsal Name</th>
+                                                <th>User </th>
+                                                <th>Amount </th>
+                                               
                                             </tr>
                                         </thead>
 
                                         <tbody>
                                             @foreach($data as $item)
                                             <tr>
-                                                <td>{{$item->futsal_id}}</td>
-                                                <td>{{$item->date}}</td>
-                                                <td>{{$item->timeslots}}</td>
-                                                <td>{{$item->status}}</td>
+                                                <td>{{$item->title}}</td>
+                                                <td>{{$item->name}}</td>
+                                                <td>{{$item->amount}}</td>
+                                               
                                             </tr>
                                            @endforeach
 

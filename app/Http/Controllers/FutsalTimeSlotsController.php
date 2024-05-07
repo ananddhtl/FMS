@@ -13,7 +13,8 @@ class FutsalTimeSlotsController extends Controller
      */
     public function index()
     {
-        //
+        $data = FutsalTimeSlots::get();
+        return view('admin.futsaltimeslots.list', compact('data'));
     }
     public function addfutsaltimeslots()
     {
@@ -33,7 +34,23 @@ class FutsalTimeSlotsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+            try {
+               
+                
+                $futsaldetails = new FutsalTimeSlots();
+                $futsaldetails->futsal_id = $request->futsalid;
+                $futsaldetails->timeslots = $request->time_slots;
+                $futsaldetails->date = $request->slotdate;
+                $futsaldetails->save();
+                return redirect()->route('getfutsaltimeslotdetails')->with('message', 'Your data has been saved successfully');
+            } catch (ValidationException $e) {
+                $errors = $e->validator->errors();
+                return redirect()->back()->withErrors($errors)->withInput();
+            } catch (\Exception $ex) {
+                return $ex->getMessage();
+            }
+        
     }
 
     /**

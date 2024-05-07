@@ -1,6 +1,5 @@
 @extends('admin.include.main')
 @section('content')
-    
     <div class="content-wrapper">
 
         <div class="container-fluid">
@@ -20,20 +19,32 @@
                         <div class="card-block">
                             <form action="{{ route('storefutsaltimeslots') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
+
+                                <div class="form-group">
+                                    <div class="form-group">
+                                        <label for="exampleSelect1" class="form-control-label">Select the Futsal</label>
+                                        <select class="form-control" name="futsalid" id="exampleSelect1">
+                                            @foreach ($futsals as $item)
+                                                <option value="{{ $item->id }}">{{ $item->title }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+
+                                </div>
+
                                 <div class="form-group">
                                     <label for="exampleInputEmail1" class="form-control-label">Date</label>
-                                    <input type="date" name="title" class="form-control" id="exampleInputEmail1"
+                                    <input type="date" name="slotdate" class="form-control" id="exampleInputEmail1"
                                         aria-describedby="emailHelp" placeholder="Enter Title">
 
                                 </div>
 
-                                
+
                                 <div class="form-group">
                                     <label for="exampleInputEmail1" class="form-control-label">Enter the time slots</label>
                                     <div class="tags_add">
-                                        <input
-                                            class="" type="text" value=""
-                                            data-role="tagsinput" style="display: none;">
+                                        <input class="" name="time_slots" type="text" value="" data-role="tagsinput"
+                                            style="display: none;">
                                     </div>
                                 </div>
 

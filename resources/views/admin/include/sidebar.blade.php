@@ -84,14 +84,18 @@
                             <li><a class="waves-effect waves-dark" href="{{ route('getfutsaltimeslots') }}"><i
                                         class="icon-arrow-right"></i>
                                     Add</a></li>
-                            <li><a class="waves-effect waves-dark" href="{{ url('futsaldetails') }}"><i
+                            <li><a class="waves-effect waves-dark" href="{{ route('getfutsaltimeslotdetails') }}"><i
                                         class="icon-arrow-right"></i>
                                     List</a></li>
 
                         </ul>
                     </li>
 
+                    <li class=" {{ Request::path() == 'payment' ? 'active treeview' : '' }}">
+                        <a class="waves-effect waves-dark" href="{{ route('getpaymentdetails') }}">
+                            <i class="icon-speedometer"></i><span> Payment</span> </a>
 
+                    </li>
 
 
                 </ul>
